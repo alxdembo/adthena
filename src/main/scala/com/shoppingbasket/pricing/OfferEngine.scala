@@ -79,7 +79,7 @@ class BuyXGetYDiscountOffer(
           val discountAmount = (discount.product.price * discountPercent / 100 * eligibleDiscountQuantity)
             .setScale(2, BigDecimal.RoundingMode.HALF_UP)
           List(Discount(
-            s"Buy $triggerQuantity $triggerProduct get $discountProduct ${discountPercent}% off",
+            s"Buy $triggerQuantity $triggerProduct get $discountProduct $discountPercent% off",
             discountAmount * 100 // Convert to pence
           ))
         } else {
