@@ -146,6 +146,26 @@ class BasketServiceSpec extends AnyFlatSpec with Matchers {
     result.total shouldBe BigDecimal("1.70")
   }
 
+  it should "price basket with soup-bread offer correctly with multiple breads" in {
+    val result = basketService.priceBasket(List("Soup", "Soup", "Bread", "Bread"))
+
+    result.subtotal shouldBe BigDecimal("2.90")
+    result.discounts should have size 1
+    result.discounts.head.description shouldBe "Buy 2 Soup get Bread 50% off"
+    result.discounts.head.amount shouldBe BigDecimal("0.40") // £0.40
+    result.total shouldBe BigDecimal("2.50")
+  }
+
+  it should "price basket with soup-bread offer correctly with multiple breads" in {
+    val result = basketService.priceBasket(List("Soup", "Soup", "Soup", "Soup", "Bread", "Bread"))
+
+    result.subtotal shouldBe BigDecimal("4.20")
+    result.discounts should have size 1
+    result.discounts.head.description shouldBe "Buy 2 Soup get Bread 50% off"
+    result.discounts.head.amount shouldBe BigDecimal("0.80") // £0.40
+    result.total shouldBe BigDecimal("3.40")
+  }
+
   it should "handle multiple of same item correctly" in {
     val result = basketService.priceBasket(List("Apples", "Apples"))
 
