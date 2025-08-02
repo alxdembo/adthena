@@ -70,46 +70,43 @@ sbt "run Apples Milk Bread"
 java -jar target/scala-2.13/price-basket.jar Apples Milk Bread
 ```
 
-#### Command Line Format
-
-```
-PriceBasket item1 item2 item3 ...
-```
-
 ### Examples
 
 #### Example 1: Apples discount
 ```bash
-$ sbt "run Apples Milk Bread"
-Subtotal: £3.10
-Apples 10% off: 10p
-Total price: £3.00
+PriceBasket run Apples Milk Bread
 ```
+    
+    Subtotal: £3.10
+    Apples 10% off: 10p
+    Total price: £3.00
 
 #### Example 2: No offers
 ```bash
-$ sbt "run Milk"
-Subtotal: £1.30
-(No offers available)
-Total price: £1.30
+PriceBasket Milk
 ```
+
+    Subtotal: £1.30
+    (No offers available)
+    Total price: £1.30
 
 #### Example 3: Soup and bread offer
 ```bash
-$ sbt "run Soup Soup Bread"
-Subtotal: £2.10
-Buy 2 Soup get Bread 50% off: 40p
-Total price: £1.70
+PriceBasket Soup Soup Bread
 ```
+    Subtotal: £2.10
+    Buy 2 Soup get Bread 50% off: 40p
+    Total price: £1.70
 
 #### Example 4: Multiple offers
 ```bash
-$ sbt "run Soup Soup Bread Apples"
-Subtotal: £3.10
-Buy 2 Soup get Bread 50% off: 40p
-Apples 10% off: 10p
-Total price: £2.60
+PriceBasket Soup Soup Bread Apples
 ```
+    Subtotal: £3.10
+    Buy 2 Soup get Bread 50% off: 40p
+    Apples 10% off: 10p
+    Total price: £2.60
+
 
 ## Architecture
 
@@ -134,7 +131,7 @@ src/
 │   └── pricing/                    # Pricing and offers
 │       └── OfferEngine.scala       # Special offers implementation
 └── test/scala/com/shoppingbasket/
-    └── ShoppingBasketSpec.scala    # Comprehensive unit tests
+    └── ShoppingBasketSpec.scala    # Unit tests
 ```
 
 ### Key Components
@@ -156,7 +153,7 @@ src/
 
 ## Testing
 
-The application includes comprehensive unit tests covering:
+The application includes unit tests covering:
 
 - Product catalog operations
 - Special offer calculations
