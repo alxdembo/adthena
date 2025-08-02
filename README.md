@@ -52,6 +52,12 @@ sudo sh ./installer.sh
 
 ### Running the Application
 
+#### After installation
+
+```bash
+PriceBasket Apples Milk Bread
+```
+
 #### Using SBT
 
 ```bash
