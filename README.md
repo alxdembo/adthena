@@ -74,7 +74,7 @@ java -jar target/scala-2.13/price-basket.jar Apples Milk Bread
 
 #### Example 1: Apples discount
 ```bash
-PriceBasket run Apples Milk Bread
+PriceBasket Apples Milk Bread
 ```
     
     Subtotal: £3.10
