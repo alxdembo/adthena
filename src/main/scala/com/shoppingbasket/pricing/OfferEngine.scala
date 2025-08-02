@@ -37,7 +37,7 @@ class PercentageDiscountOffer(productName: String, discountPercent: Int) extends
       .flatMap { item =>
         val discountAmount = (item.totalPrice * discountPercent / 100).setScale(2, BigDecimal.RoundingMode.HALF_UP)
         if (discountAmount > 0) {
-          Some(Discount(s"$productName $discountPercent% off", discountAmount * 100)) // Convert to pence
+          Some(Discount(s"$productName $discountPercent% off", discountAmount))
         } else {
           None
         }
@@ -80,7 +80,7 @@ class BuyXGetYDiscountOffer(
             .setScale(2, BigDecimal.RoundingMode.HALF_UP)
           List(Discount(
             s"Buy $triggerQuantity $triggerProduct get $discountProduct $discountPercent% off",
-            discountAmount * 100 // Convert to pence
+            discountAmount
           ))
         } else {
           List.empty

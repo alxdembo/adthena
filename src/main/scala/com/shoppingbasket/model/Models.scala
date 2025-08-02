@@ -28,7 +28,7 @@ case class BasketItem(product: Product, quantity: Int) {
  * Represents a discount applied to the basket.
  *
  * @param description Human-readable description of the discount
- * @param amount      The discount amount in pence
+ * @param amount      The discount amount in pounds
  */
 case class Discount(description: String, amount: BigDecimal) {
   require(amount >= 0, "Discount amount must be non-negative")

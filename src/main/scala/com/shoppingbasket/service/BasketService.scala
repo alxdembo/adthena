@@ -25,7 +25,7 @@ class BasketService(catalog: ProductCatalog, offerEngine: OfferEngine) {
 
     val subtotal = basketItems.map(_.totalPrice).sum
     val discounts = offerEngine.applyOffers(basketItems)
-    val totalDiscountAmount = discounts.map(_.amount).sum / 100 // Convert from pence to pounds
+    val totalDiscountAmount = discounts.map(_.amount).sum
     val total = subtotal - totalDiscountAmount
 
     PricingResult(subtotal, discounts, total)

@@ -44,7 +44,7 @@ class PercentageDiscountOfferSpec extends AnyFlatSpec with Matchers {
 
     discounts should have size 1
     discounts.head.description shouldBe "Apples 10% off"
-    discounts.head.amount shouldBe BigDecimal("20") // 20 pence
+    discounts.head.amount shouldBe BigDecimal("0.20") // £0.20
   }
 
   it should "not apply discount to non-matching products" in {
@@ -80,7 +80,7 @@ class BuyXGetYDiscountOfferSpec extends AnyFlatSpec with Matchers {
 
     discounts should have size 1
     discounts.head.description shouldBe "Buy 2 Soup get Bread 50% off"
-    discounts.head.amount shouldBe BigDecimal("40") // 40 pence
+    discounts.head.amount shouldBe BigDecimal("0.40") // £0.40
   }
 
   it should "not apply discount when trigger quantity not met" in {
@@ -108,7 +108,7 @@ class BuyXGetYDiscountOfferSpec extends AnyFlatSpec with Matchers {
     val discounts = soupBreadOffer.apply(items)
 
     discounts should have size 1
-    discounts.head.amount shouldBe BigDecimal("80") // 80 pence (2 breads discounted)
+    discounts.head.amount shouldBe BigDecimal("0.80") // £0.80 (2 breads discounted)
   }
 }
 
@@ -132,7 +132,7 @@ class BasketServiceSpec extends AnyFlatSpec with Matchers {
     result.subtotal shouldBe BigDecimal("3.10")
     result.discounts should have size 1
     result.discounts.head.description shouldBe "Apples 10% off"
-    result.discounts.head.amount shouldBe BigDecimal("10") // 10 pence
+    result.discounts.head.amount shouldBe BigDecimal("0.10") // £0.10
     result.total shouldBe BigDecimal("3.00")
   }
 
@@ -142,7 +142,7 @@ class BasketServiceSpec extends AnyFlatSpec with Matchers {
     result.subtotal shouldBe BigDecimal("2.10")
     result.discounts should have size 1
     result.discounts.head.description shouldBe "Buy 2 Soup get Bread 50% off"
-    result.discounts.head.amount shouldBe BigDecimal("40") // 40 pence
+    result.discounts.head.amount shouldBe BigDecimal("0.40") // £0.40
     result.total shouldBe BigDecimal("1.70")
   }
 
@@ -151,7 +151,7 @@ class BasketServiceSpec extends AnyFlatSpec with Matchers {
 
     result.subtotal shouldBe BigDecimal("2.00")
     result.discounts should have size 1
-    result.discounts.head.amount shouldBe BigDecimal("20") // 20 pence (10% of £2.00)
+    result.discounts.head.amount shouldBe BigDecimal("0.20") // £0.20 (10% of £2.00)
     result.total shouldBe BigDecimal("1.80")
   }
 

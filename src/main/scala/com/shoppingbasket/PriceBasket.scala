@@ -47,7 +47,7 @@ object PriceBasket extends App {
 
     val discountLines = if (result.discounts.nonEmpty) {
       result.discounts.map(discount =>
-        f"${discount.description}: ${discount.amount}%.0fp"
+        f"${discount.description}: ${(discount.amount * 100).toInt}p"
       ).mkString("\n")
     } else {
       "(No offers available)"
