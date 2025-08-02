@@ -3,7 +3,7 @@ package com.shoppingbasket.model
 /**
  * Represents a product in the catalog with its name and price.
  *
- * @param name The product name (case-insensitive)
+ * @param name  The product name (case-insensitive)
  * @param price The price in pounds
  */
 case class Product(name: String, price: BigDecimal) {
@@ -14,7 +14,7 @@ case class Product(name: String, price: BigDecimal) {
 /**
  * Represents an item in the shopping basket.
  *
- * @param product The product being purchased
+ * @param product  The product being purchased
  * @param quantity The number of items
  */
 case class BasketItem(product: Product, quantity: Int) {
@@ -28,7 +28,7 @@ case class BasketItem(product: Product, quantity: Int) {
  * Represents a discount applied to the basket.
  *
  * @param description Human-readable description of the discount
- * @param amount The discount amount in pence
+ * @param amount      The discount amount in pence
  */
 case class Discount(description: String, amount: BigDecimal) {
   require(amount >= 0, "Discount amount must be non-negative")
@@ -38,9 +38,9 @@ case class Discount(description: String, amount: BigDecimal) {
 /**
  * Represents the final pricing result for a basket.
  *
- * @param subtotal The subtotal before discounts
+ * @param subtotal  The subtotal before discounts
  * @param discounts List of applied discounts
- * @param total The final total after discounts
+ * @param total     The final total after discounts
  */
 case class PricingResult(
                           subtotal: BigDecimal,

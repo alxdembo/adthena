@@ -26,7 +26,7 @@ trait SpecialOffer {
 /**
  * Percentage discount offer for a specific product.
  *
- * @param productName The name of the product to discount
+ * @param productName     The name of the product to discount
  * @param discountPercent The discount percentage (0-100)
  */
 class PercentageDiscountOffer(productName: String, discountPercent: Int) extends SpecialOffer {
@@ -52,7 +52,7 @@ class PercentageDiscountOffer(productName: String, discountPercent: Int) extends
 /**
  * Buy X get Y at discount offer.
  *
- * @param triggerProduct The product that triggers the offer
+ * @param triggerProduct  The product that triggers the offer
  * @param triggerQuantity The minimum quantity needed to trigger the offer
  * @param discountProduct The product that gets discounted
  * @param discountPercent The discount percentage for the discounted product
@@ -108,7 +108,7 @@ class OfferEngine {
   // Current active offers
   private val offers: List[SpecialOffer] = List(
     new PercentageDiscountOffer("Apples", 10),
-//    new PercentageDiscountOffer("Soup", 10),
+    //    new PercentageDiscountOffer("Soup", 10),
     new BuyXGetYDiscountOffer("Soup", 2, "Bread", 50)
   )
 

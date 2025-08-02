@@ -8,7 +8,7 @@ import com.shoppingbasket.pricing.OfferEngine
  * Implements the Facade pattern, providing a simplified interface
  * to the complex subsystem of product catalog and offer engine.
  *
- * @param catalog The product catalog service
+ * @param catalog     The product catalog service
  * @param offerEngine The offer engine for applying discounts
  */
 class BasketService(catalog: ProductCatalog, offerEngine: OfferEngine) {
