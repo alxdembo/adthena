@@ -9,11 +9,19 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container: hseeberger/scala-sbt:11.0.16_1.7.1_2.13.8
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+        
+    - name: Setup SBT
+      uses: sbt/setup-sbt@v1
         
     - name: Cache SBT dependencies
       uses: actions/cache@v4
