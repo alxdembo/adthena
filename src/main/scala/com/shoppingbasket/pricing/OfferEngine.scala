@@ -108,7 +108,6 @@ class OfferEngine {
   // Current active offers
   private val offers: List[SpecialOffer] = List(
     new PercentageDiscountOffer("Apples", 10),
-    //    new PercentageDiscountOffer("Soup", 10),
     new BuyXGetYDiscountOffer("Soup", 2, "Bread", 50)
   )
 
