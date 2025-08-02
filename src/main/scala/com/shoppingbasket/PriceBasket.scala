@@ -18,7 +18,8 @@ object PriceBasket extends App {
 
   if (args.isEmpty) {
     println("Usage: PriceBasket item1 item2 item3 ...")
-    println("Available items: Soup, Bread, Milk, Apples")
+    val availableItems = catalog.getAllProducts.map(_.name).toSeq.sorted.mkString(", ")
+    println(s"Available items: $availableItems")
     sys.exit(1)
   }
 
